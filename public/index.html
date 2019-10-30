@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>demo</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but demo doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+    <style>
+        html, body{
+            position: absolute;
+            z-index: -1;
+            margin: 0;
+            padding-bottom: 50px;
+            width: 100%;
+            background: linear-gradient(#FFFFFF, #6DD5FA, #2980B9) no-repeat;
+        }
+
+        #filter {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: antiquewhite;
+            z-index: -1;
+            animation: filter 10s infinite ease-in-out both;
+        }
+
+        @keyframes filter {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="filter"></div>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>
