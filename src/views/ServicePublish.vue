@@ -27,7 +27,7 @@
                                 </el-button>
                                 <el-button
                                     @click="publish(scope.row)"
-                                    type="primary"
+                                    type="success"
                                     size="small">
                                     发布
                                 </el-button>

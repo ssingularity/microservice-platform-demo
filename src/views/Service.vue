@@ -3,6 +3,13 @@
         <el-row>
             <el-col span="18" offset="3">
                 <el-card header="已发布微服务" shadow="hover">
+                    <el-input placeholder="请输入微服务名称" v-model="search" style="margin-bottom: 50px">
+                        <el-select v-model="select" slot="prepend" placeholder="请选择" style="width: 110px">
+                            <el-option label="我的" value="1"></el-option>
+                            <el-option label="其他人的" value="2"></el-option>
+                        </el-select>
+                        <el-button slot="append" icon="el-icon-search"></el-button>
+                    </el-input>
                     <el-tabs type="card" v-model="activeTab">
                         <el-tab-pane label="我的微服务" name="mine">
                             <el-table :data="myServiceList">
@@ -88,6 +95,7 @@
         name: "Service",
         data: function () {
             return {
+                search: "",
                 activeTab: "mine",
                 serviceList: [
                     {
@@ -126,7 +134,8 @@
                         date: "2019-09-05",
                         status: "STOPPED"
                     },
-                ]
+                ],
+                select: ''
             }
         },
         computed: {
