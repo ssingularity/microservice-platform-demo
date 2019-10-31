@@ -9,12 +9,12 @@
                         <el-table-column prop="description" label="服务描述" align="center"/>
                         <el-table-column label="可配置变量" align="center">
                             <template slot-scope="scope">
-                                <div v-for="variable in scope.row.variablesList" :key="variable.key">
+                                <el-tag  style="margin: 5px" v-for="variable in scope.row.variablesList" :key="variable.key">
                                     {{variable.key}}
-                                </div>
+                                </el-tag>
                             </template>
                         </el-table-column>
-                        <el-table-column prop="count" label="运行实例数" align="center" />
+                        <el-table-column label="运行实例数" align="center" prop="count"/>
                         <el-table-column
                             fixed="right"
                             label="操作"
