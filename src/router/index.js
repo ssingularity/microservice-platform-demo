@@ -6,6 +6,7 @@ import ServicePublish from "../views/ServicePublish"
 import Service from "../views/Service"
 import FileUpload from "../views/FileUpload"
 import CompositeService from "../views/CompositeService"
+import Procedure from "../views/Procedure"
 
 Vue.use(VueRouter)
 
@@ -28,7 +29,7 @@ const routes = [
     },
     {
         path: '/composite-service-publish/procedure',
-        component: ContainerConfigure
+        component: Procedure
     },
     {
         path: '/composite-service-publish/file-upload',

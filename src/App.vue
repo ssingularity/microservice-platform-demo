@@ -1,10 +1,11 @@
 <template>
     <div id="app">
         <el-menu
+            style="opacity: 0.9"
             class="el-menu-demo"
             mode="horizontal"
             :router="isRouter"
-            background-color="#545c64"
+            background-color="#58A5F5"
             text-color="#fff"
             active-text-color="#FFEFBA">
             <el-menu-item index="/container-configure">服务环境配置</el-menu-item>

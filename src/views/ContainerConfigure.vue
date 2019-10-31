@@ -1,41 +1,50 @@
 <template>
     <div class="main">
-        <el-radio v-model="radio" label="image">上传镜像</el-radio>
-        <el-radio v-model="radio" label="file">上传文件</el-radio>
         <el-row>
-            <el-col :offset="6" :span="12">
-                <el-input
-                    style="margin-top: 20px"
-                    v-show="isImage"
-                    placeholder="请输入镜像名"
-                    type="text"
-                    v-model="imageName">
-                    <template slot="prepend">镜像名</template>
-                </el-input>
-            </el-col>
-        </el-row>
-        <el-row>
-            <el-col :offset="8" :span="8">
-                <el-upload
-                    style="margin-top: 20px"
-                    v-show="!isImage"
-                    class="upload-demo"
-                    ref="upload"
-                    :file-list="fileList"
-                    :auto-upload="false">
-                    <el-button slot="trigger" size="big" type="primary">选取文件</el-button>
-                </el-upload>
-            </el-col>
-        </el-row>
-            <environment-variable
-                v-for="variable in variablesList"
-                :key="variable">
-            </environment-variable>
-        <el-row>
-            <el-col :span="4" :offset="10">
-                <el-button type="success" style="margin-top: 20px;">
-                    确认
-                </el-button>
+            <el-col :offset="5" :span="14">
+                <el-card shadow="hover" header="服务环境配置">
+                    <el-form ref="form"  label-position="left" label-width="100px" :style="'opacity:' + opacity">
+                        <el-form-item label="服务名称">
+                            <el-input
+                                placeholder="请输入服务名称"
+                                type="text">
+                            </el-input>
+                        </el-form-item>
+                        <el-form-item label="服务描述">
+                            <el-input
+                                placeholder="请输入服务描述"
+                                type="text">
+                            </el-input>
+                        </el-form-item>
+                        <el-form-item label="上传方式">
+                            <el-radio v-model="radio" label="image">镜像</el-radio>
+                            <el-radio v-model="radio" label="file">文件</el-radio>
+                        </el-form-item>
+                        <el-form-item v-show="isImage" label="上传镜像">
+                            <el-input
+                                placeholder="请输入镜像名"
+                                type="text">
+                            </el-input>
+                        </el-form-item>
+                        <el-form-item v-show="!isImage" label="上传文件">
+                            <el-upload
+                                ref="upload"
+                                :file-list="fileList"
+                                :auto-upload="false">
+                                <el-button slot="trigger" size="big" type="primary">选取文件</el-button>
+                            </el-upload>
+                        </el-form-item>
+                        <el-form-item
+                            v-for="variable in variablesList"
+                            :key="variable" :label="'可配置变量'+variable">
+                            <environment-variable @remove-event="removeVariable(variable)"></environment-variable>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="primary">立即创建</el-button>
+                            <el-button @click="add">新增可配置变量</el-button>
+                        </el-form-item>
+                    </el-form>
+                </el-card>
             </el-col>
         </el-row>
     </div>
@@ -49,15 +58,9 @@
         data: function () {
             return {
                 radio: "image",
-                imageName: "",
                 fileList: [],
-                variablesList: [0, 1, 2, 3, 4, 5, 6, 7],
-                dynamicValidateForm: {
-                    domains: [{
-                        value: ''
-                    }],
-                    email: ''
-                }
+                variablesList: [0, 1, 2],
+                opacity: 1
             }
         },
         computed: {
@@ -68,6 +71,16 @@
         components: {
             EnvironmentVariable
         },
+        methods: {
+            removeVariable: function (number) {
+                let index = this.variablesList.indexOf(number)
+                this.variablesList.splice(index, 1)
+            },
+            add: function () {
+                let length = this.variablesList.length
+                this.variablesList.splice(length, 0, length)
+            }
+        }
     }
 </script>
 
