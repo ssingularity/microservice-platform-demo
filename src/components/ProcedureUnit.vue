@@ -9,7 +9,7 @@
                style="float: right; height: 1.2rem; width: 1.2rem"
                class="el-icon-delete"></i>
         </el-card>
-        <el-card style="margin-top: 20px; height: 500px; overflow: scroll">
+        <el-card style="margin-top: 20px; height: 400px; overflow: scroll">
             <div>服务列表</div>
             <ul style="list-style-type: none">
                 <li v-for="service in Unit.serviceList"
