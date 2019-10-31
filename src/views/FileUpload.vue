@@ -28,7 +28,7 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" style="margin: 20px">
-                                提交
+                                发布
                             </el-button>
                         </el-form-item>
                     </el-form>
