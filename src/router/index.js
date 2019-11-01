@@ -8,6 +8,8 @@ import CompositeService from "../views/CompositeService"
 import Procedure from "../views/Procedure"
 import NotFound from "../views/404"
 import OnlineUpload from "../views/OnlineUpload"
+import EmptyPage from "../views/EmptyPage"
+import CompositeServiceInstance from "../views/CompositeServiceInstance"
 
 Vue.use(VueRouter)
 
@@ -15,6 +17,10 @@ const routes = [
     {
         path: '/',
         component: ContainerConfigure
+    },
+    {
+        path: '/empty',
+        component: EmptyPage
     },
     {
         path: '/container-configure',
@@ -43,6 +49,10 @@ const routes = [
     {
         path: '/composite-service',
         component: CompositeService
+    },
+    {
+        path: '/composite-service/:id/instances',
+        component: CompositeServiceInstance
     },
     {
         path: '/404',

@@ -28,7 +28,6 @@
                                     width="350px">
                                     <template slot-scope="scope">
                                         <el-button
-                                            @click="detail(scope.row)"
                                             size="small">
                                             详情
                                         </el-button>
@@ -54,10 +53,19 @@
                                     </template>
                                 </el-table-column>
                             </el-table>
+                            <el-pagination
+                                style="margin-top: 20px"
+                                background
+                                layout="prev, pager, next"
+                                :total="1">
+                            </el-pagination>
                             <el-button
                                 @click="$router.push('/service-create')"
                                 type="primary"
                                 style="margin-top: 20px">创建微服务实例</el-button>
+                            <el-button
+                                @click="$router.push('/empty')"
+                                style="margin-top: 20px">导入已有微服务实例</el-button>
                         </el-tab-pane>
                         <el-tab-pane label="我发布的微服务" name="minePublished">
                             <el-table :data="myPublishedServiceList">
@@ -77,7 +85,6 @@
                                     <template slot-scope="scope">
                                         <el-button
                                             style="margin-right: 10px"
-                                            @click="detail(scope.row)"
                                             size="small">
                                             详情
                                         </el-button>
@@ -90,6 +97,12 @@
                                     </template>
                                 </el-table-column>
                             </el-table>
+                            <el-pagination
+                                style="margin-top: 20px"
+                                background
+                                layout="prev, pager, next"
+                                :total="1">
+                            </el-pagination>
                         </el-tab-pane>
                         <el-tab-pane label="其他人的微服务" name="others">
                             <el-table :data="othersServiceList">
@@ -108,7 +121,6 @@
                                     width="350px">
                                     <template slot-scope="scope">
                                         <el-button
-                                            @click="detail(scope.row)"
                                             size="small">
                                             详情
                                         </el-button>
@@ -120,6 +132,12 @@
                                     </template>
                                 </el-table-column>
                             </el-table>
+                            <el-pagination
+                                style="margin-top: 20px"
+                                background
+                                layout="prev, pager, next"
+                                :total="1">
+                            </el-pagination>
                         </el-tab-pane>
                     </el-tabs>
                 </el-card>
@@ -219,9 +237,6 @@
             }
         },
         methods: {
-            detail: function (service) {
-                alert(service)
-            },
             start: function (service) {
                 service.status = "RUNNING"
             },

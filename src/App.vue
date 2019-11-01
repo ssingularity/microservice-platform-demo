@@ -8,7 +8,7 @@
             background-color="#58A5F5"
             text-color="#fff"
             active-text-color="#FFEFBA">
-            <el-menu-item index="/container-configure">服务模板配置</el-menu-item>
+            <el-menu-item index="/container-configure">服务模板管理</el-menu-item>
             <el-menu-item index="/service">微服务管理</el-menu-item>
             <el-submenu index="/composite-service-publish">
                 <template slot="title">组合服务模板配置</template>

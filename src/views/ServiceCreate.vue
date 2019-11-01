@@ -18,7 +18,6 @@
                                 </el-tag>
                             </template>
                         </el-table-column>
-                        <el-table-column label="运行实例数" align="center" prop="count"/>
                         <el-table-column
                             fixed="right"
                             label="操作"
@@ -38,6 +37,12 @@
                             </template>
                         </el-table-column>
                     </el-table>
+                    <el-pagination
+                        style="margin-top: 20px"
+                        background
+                        layout="prev, pager, next"
+                        :total="1">
+                    </el-pagination>
                 </el-card>
             </el-col>
         </el-row>
