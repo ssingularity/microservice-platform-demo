@@ -3,7 +3,7 @@
         <el-row>
             <el-col span="18" offset="3">
                 <el-card>
-                    <el-page-header @back="$router.push('/service')" content="创建微服务实例">
+                    <el-page-header @back="$router.push('/service')" content="微服务管理">
                     </el-page-header>
                 </el-card>
                 <el-card header="可创建服务" shadow="hover" style="margin-top: 10px">
