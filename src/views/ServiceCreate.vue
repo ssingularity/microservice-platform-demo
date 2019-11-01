@@ -2,7 +2,11 @@
     <div class="main">
         <el-row>
             <el-col span="18" offset="3">
-                <el-card header="可发布微服务" shadow="hover">
+                <el-card>
+                    <el-page-header @back="$router.push('/service')" content="创建微服务实例">
+                    </el-page-header>
+                </el-card>
+                <el-card header="可创建服务" shadow="hover" style="margin-top: 10px">
                     <el-table :data="containerConfigureList">
                         <el-table-column prop="date" label="配置日期" align="center"/>
                         <el-table-column prop="name" label="服务名称" align="center"/>
@@ -29,40 +33,34 @@
                                     @click="publish(scope.row)"
                                     type="success"
                                     size="small">
-                                    发布
+                                    创建
                                 </el-button>
                             </template>
                         </el-table-column>
-
                     </el-table>
                 </el-card>
-                <el-dialog :title="'发布' + containerConfigure.name" :visible.sync="dialogFormVisible">
-                    <el-form label-position="left" label-width="100px">
-                        <el-form-item label="实例名称">
-                            <el-input></el-input>
-                        </el-form-item>
-                        <el-form-item v-for="variable in containerConfigure.variablesList" :key="variable.key" :label="variable.key">
-                            <el-input v-model="variable.value"></el-input>
-                        </el-form-item>
-                        <el-form-item v-for="endpoint in endpoints" :key="endpoint" :label="'Endpoint' + endpoint">
-                            <Endpoint></Endpoint>
-                        </el-form-item>
-                    </el-form>
-                    <div slot="footer" class="dialog-footer">
-                        <el-button >增加Endpoint</el-button>
-                        <el-button @click="dialogFormVisible = false">取 消</el-button>
-                        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-                    </div>
-                </el-dialog>
             </el-col>
         </el-row>
+        <el-dialog :title="'创建' + containerConfigure.name + '实例'" :visible.sync="dialogFormVisible">
+            <el-form label-position="left" label-width="100px">
+                <el-form-item label="实例名称">
+                    <el-input v-model="instanceName"></el-input>
+                </el-form-item>
+                <el-form-item v-for="variable in containerConfigure.variablesList" :key="variable.key" :label="variable.key">
+                    <el-input v-model="variable.value"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
 <script>
-    import Endpoint from "../components/Endpoint"
     export default {
-        name: "ServicePublish",
+        name: "ServiceCreate",
         data: function () {
             return {
                 containerConfigure: {},
@@ -125,7 +123,6 @@
                     },
                 ],
                 dialogFormVisible: false,
-                endpoints: [0, 1, 2]
             }
         },
         methods: {
@@ -134,8 +131,10 @@
                 this.containerConfigure = row
             }
         },
-        components: {
-            Endpoint
+        computed: {
+            instanceName: function () {
+                return this.containerConfigure.name + '第' + Math.floor(Math.random() * 10) + "实例"
+            }
         }
     }
 </script>

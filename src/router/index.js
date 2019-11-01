@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ContainerConfigure from "../views/ContainerConfigure"
-import Container from "../views/Container"
-import ServicePublish from "../views/ServicePublish"
+import ServiceCreate from "../views/ServiceCreate"
 import Service from "../views/Service"
 import FileUpload from "../views/FileUpload"
 import CompositeService from "../views/CompositeService"
 import Procedure from "../views/Procedure"
 import NotFound from "../views/404"
+import OnlineUpload from "../views/OnlineUpload"
 
 Vue.use(VueRouter)
 
@@ -21,23 +21,23 @@ const routes = [
         component: ContainerConfigure
     },
     {
-        path: '/container',
-        component: Container
-    },
-    {
-        path: '/service-publish',
-        component: ServicePublish
+        path: '/service-create',
+        component: ServiceCreate
     },
     {
         path: '/service',
         component: Service
     },
     {
-        path: '/composite-service-publish/procedure',
+        path: '/composite-service/:id/publish',
         component: Procedure
     },
     {
-        path: '/composite-service-publish/file-upload',
+        path: '/composite-service-configure/online-upload',
+        component: OnlineUpload
+    },
+    {
+        path: '/composite-service-configure/file-upload',
         component: FileUpload
     },
     {

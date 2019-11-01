@@ -2,13 +2,15 @@
     <div class="main">
         <el-row>
             <el-col span="22" offset="1">
-                <el-card shadow="hover" header="流程编排">
-                    <div style="text-align: left">新建组合服务</div>
-                    <el-divider></el-divider>
+                <el-card>
+                    <el-page-header @back="$router.push('/composite-service')" content="组合服务管理">
+                    </el-page-header>
+                </el-card>
+                <el-card style="margin-top: 10px" shadow="hover" :header="'发布' + $route.params.id">
                     <el-row>
                         <el-col span="10">
-                            <el-form>
-                                <el-form-item label="组合服务名称:" label-width="100px">
+                            <el-form label-position="left">
+                                <el-form-item label="组合服务实例名称:" label-width="150px">
                                     <el-input v-model="serviceName"></el-input>
                                 </el-form-item>
                             </el-form>
@@ -115,13 +117,19 @@
                         name: "步骤1",
                         serviceList: [
                             {
-                                name: "服务A第一实例"
+                                name: "服务A第一实例",
+                            },
+                            {
+                                name: "服务A第二实例",
                             }
                         ]
                     },
                     {
                         name: "步骤2",
                         serviceList: [
+                            {
+                                name: "服务C第一实例"
+                            }
                         ]
                     },
                 ],

@@ -1,12 +1,12 @@
 <template>
-    <div>
-        容器管理
+    <div class="main">
+        <h1>BPMN文件在线编排</h1>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Container"
+        name: "OnlineUpload"
     }
 </script>
 

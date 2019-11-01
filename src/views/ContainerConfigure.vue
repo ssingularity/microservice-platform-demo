@@ -2,7 +2,7 @@
     <div class="main">
         <el-row>
             <el-col :offset="5" :span="14">
-                <el-card shadow="hover" header="服务环境配置">
+                <el-card shadow="hover" header="服务模板配置">
                     <el-form ref="form"  label-position="left" label-width="100px" :style="'opacity:' + opacity">
                         <el-form-item label="服务名称">
                             <el-input
@@ -40,7 +40,7 @@
                             <environment-variable @remove-event="removeVariable(variable)"></environment-variable>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary">立即创建</el-button>
+                            <el-button type="primary">创建</el-button>
                             <el-button @click="add">新增可配置变量</el-button>
                         </el-form-item>
                     </el-form>

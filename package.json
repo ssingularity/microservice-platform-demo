@@ -21,6 +21,7 @@
         "@vue/cli-plugin-vuex": "^4.0.5",
         "@vue/cli-service": "^4.0.0",
         "babel-eslint": "^10.0.3",
+        "element-theme-chalk": "^2.12.0",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.0.0",
         "node-sass": "^4.13.0",
@@ -37,6 +38,12 @@
             "plugin:vue/strongly-recommended",
             "eslint:recommended"
         ],
+        "rules": {
+            "indent": [
+                0,
+                4
+            ]
+        },
         "parserOptions": {
             "parser": "babel-eslint"
         }

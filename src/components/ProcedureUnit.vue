@@ -10,7 +10,7 @@
                class="el-icon-delete"></i>
         </el-card>
         <el-card style="margin-top: 20px; height: 400px; overflow: scroll">
-            <div>服务列表</div>
+            <div>服务实例列表</div>
             <ul style="list-style-type: none">
                 <li v-for="service in Unit.serviceList"
                     :key="service.name">
